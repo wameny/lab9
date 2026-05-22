@@ -18,3 +18,17 @@ const loggedAdd = log({
 })(add);
 
 console.log(loggedAdd(3, 3));
+
+async function fetchUser(id) {
+  return {
+    id,
+    name: "Vlada",
+  };
+}
+
+const loggedFetchUser = log({
+  logger: new ConsoleLogger(),
+  level: "DEBUG",
+})(fetchUser);
+
+await loggedFetchUser(1);
